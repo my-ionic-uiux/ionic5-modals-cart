@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add to Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="amountForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">{{product.name}} <ion-text color="danger">*</ion-text></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="4">
+            <ion-button (click)="onClick()">
+              <ion-icon slot="icon-only" name="add"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="4">
+            <ion-input type="number" placeholder="Awesome Input"></ion-input>
+          </ion-col>
+          <ion-col size="4">
+            <ion-button (click)="onClick()">
+              <ion-icon slot="icon-only" name="add"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </form>
+  <form [formGroup]="zipCodeForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Calcular frete e prazo <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="zipcode" type="text" placeholder="Informe um CEP"></ion-input>
+    </ion-item>
+    <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
+      Calcular Frete
+    </ion-button>
+  </form>
+  <form [formGroup]="FinishBuyForm" (ngSubmit)="onSubmit()">
+    <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
+      Finalizar Compra
+    </ion-button>
+  </form>
+</ion-content>
